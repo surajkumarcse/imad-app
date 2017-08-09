@@ -4,8 +4,9 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-var articleOne ={
-    title:'article one| suraj kumar', 
+
+var articleOne = {
+    title: 'article one| suraj kumar', 
     heading:'article one',
     date:'sep 5 , 2017',
     content:`
@@ -27,7 +28,7 @@ function createTemplate (data)
     var date = data.date;
     var heading = data.heading;
     var content = data.content;
-        var htmltemplate=`<html>
+        var htmlTemplate=`<html>
             <head> 
             <title>${title}</title>
             <meta name="viewport" content="width=device-width, initial-scale-1"/>
