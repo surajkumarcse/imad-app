@@ -5,7 +5,10 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
+var articles = {
+    
+
+ 'article-one' : {
     title: 'article one| suraj kumar', 
     heading:'article one',
     date:'sep 5 , 2017',
@@ -21,6 +24,79 @@ var articleOne = {
                     This is the Article-one. I hope you are enjoying.
                 </p>`
     
+},
+'article-two' : {
+    <html>
+    <head> 
+    <title> suraj | article two</title>
+    <meta name="viewport" content="width=device-width, initial-scale-1"/>
+    <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+    <body>
+ <div class="container">
+        <div>
+            <a href="/"> home </a>
+        </div>
+
+        <hr/>
+          
+            <h3> Article-Two</h3>
+            <div>
+                Date: 7th August 2017
+            </div>
+            <div>
+                <p>
+                    This is the Article-two. I hope you are enjoying.
+                </p>
+                 <p>
+                    This is the Article-two. I hope you are enjoying.
+                </p> <p>
+                    This is the Article-two. I hope you are enjoying.
+                </p> <p>
+                    This is the Article-two. I hope you are enjoying.
+                </p>
+            </div>
+  </div>
+    </body>
+</html>
+
+}, 
+'article-three' : {
+    <html>
+    <head> 
+    <title> suraj | article three</title>
+    <meta name="viewport" content="width=device-width, initial-scale-1"/>
+    <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+    <body>
+ <div class="container">
+        <div>
+            <a href="/"> home </a>
+        </div>
+
+        <hr/>
+          
+            <h3> Article-three</h3>
+            <div>
+                Date: 27th August 2017
+            </div>
+            <div>
+                <p>
+                    This is the Article-three. I hope you are enjoying.
+                </p>
+                 <p>
+                    This is the Article-three. I hope you are enjoying.
+                </p> <p>
+                    This is the Article-three. I hope you are enjoying.
+                </p> <p>
+                    This is the Article-three. I hope you are enjoying.
+                </p>
+            </div>
+  </div>
+    </body>
+</html>
+
+}
 };
 function createTemplate (data)
 {
@@ -60,15 +136,12 @@ function createTemplate (data)
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/article-one', function(req, res){
-   res.send(createTemplate(articleOne));
+app.get('/:articleName', function(req, res){
+    //articlename = article-one
+    var articleName=req.params.articleName;
+   res.send(createTemplate(articles[articlename]));
 });
-app.get('/article-two', function(req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-app.get('/article-three', function(req, res){
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
