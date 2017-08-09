@@ -8,7 +8,7 @@ app.use(morgan('combined'));
 var articles = {
     
 
- 'article-one' : {
+ 'article-one': {
     title: 'article one| suraj kumar', 
     heading:'article one',
     date:'sep 5 , 2017',
@@ -25,27 +25,12 @@ var articles = {
                 </p>`
     
 },
-'article-two' : {
-    <html>
-    <head> 
-    <title> suraj | article two</title>
-    <meta name="viewport" content="width=device-width, initial-scale-1"/>
-    <link href="/ui/style.css" rel="stylesheet" />
-    </head>
-    <body>
- <div class="container">
-        <div>
-            <a href="/"> home </a>
-        </div>
-
-        <hr/>
-          
-            <h3> Article-Two</h3>
-            <div>
-                Date: 7th August 2017
-            </div>
-            <div>
-                <p>
+'article-two': {
+    title: 'article two| suraj kumar', 
+    heading:'article two',
+    date:'sep 5 , 2017',
+    content:`
+        <p>
                     This is the Article-two. I hope you are enjoying.
                 </p>
                  <p>
@@ -54,48 +39,19 @@ var articles = {
                     This is the Article-two. I hope you are enjoying.
                 </p> <p>
                     This is the Article-two. I hope you are enjoying.
-                </p>
-            </div>
-  </div>
-    </body>
-</html>
-
+                </p>`
+    
 }, 
-'article-three' : {
-    <html>
-    <head> 
-    <title> suraj | article three</title>
-    <meta name="viewport" content="width=device-width, initial-scale-1"/>
-    <link href="/ui/style.css" rel="stylesheet" />
-    </head>
-    <body>
- <div class="container">
-        <div>
-            <a href="/"> home </a>
-        </div>
-
-        <hr/>
-          
-            <h3> Article-three</h3>
-            <div>
-                Date: 27th August 2017
-            </div>
-            <div>
-                <p>
-                    This is the Article-three. I hope you are enjoying.
+'article-three': {
+    title: 'article three| suraj kumar', 
+    heading:'article three',
+    date:'sep 25 , 2017',
+    content:`
+        <p>
+                    This is the Article-three. I hope you are enjoying too.
                 </p>
-                 <p>
-                    This is the Article-three. I hope you are enjoying.
-                </p> <p>
-                    This is the Article-three. I hope you are enjoying.
-                </p> <p>
-                    This is the Article-three. I hope you are enjoying.
-                </p>
-            </div>
-  </div>
-    </body>
-</html>
-
+                 `
+    
 }
 };
 function createTemplate (data)
