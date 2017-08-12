@@ -9,8 +9,8 @@ button.onclick = function (){
     request.onreadystatechange = function(){
       if (request.readyState === XMLHttpRequest.DONE) {
          if (request.status === 200){
-               var names = request.responseText;
-               names = JSON.parse(names);
+               var names = ['name1', 'name2', 'name3', 'name4'];
+               
               var list = '';
             for (var i=0; i < names.length; i++){
                 list += '<li>' + name[i] + '</li>';
@@ -35,8 +35,7 @@ button.onclick = function (){
 
 
 //submit name
-var nameInput = document.getElementById('name');
-var name = nameInput.value;
+
 var submit = document.getElementById('submit_btn');
 submit.onclick = function(){
   //make a request to the   server and send the name
@@ -48,11 +47,13 @@ submit.onclick = function(){
       if (request.readyState === XMLHttpRequest.DONE) {
          if (request.status === 200){
              
-               var names = ['name1', 'name2', 'name3', 'name4'];
-               
+                              
+               var names = request.responseText;
+               names = JSON.parse(names);
               var list = '';
             for (var i=0; i < names.length; i++){
                 list += '<li>' + name[i] + '</li>';
+ 
             }
             var ul = document.getElementById('namelist');
             ul.innerHTML = list;
@@ -61,7 +62,8 @@ submit.onclick = function(){
       } 
       //not done yet
     };
-    
+    var nameInput = document.getElementById('name');
+     var name = nameInput.value;
     request.open('GET', 'http://surajkumar2cse20.imad.hasura-app.io/submit-name?name=' + name , true);
     request.send(null);
     //make the request
