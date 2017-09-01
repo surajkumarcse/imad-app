@@ -93,7 +93,7 @@ app.post('/login', function(req, res){
     var password = req.body.password;
    // var salt = crypto.randomBytes(128).toString('hex');
     //var dbString = hash(password, salt);
-    pool.query('SELECT * from "user" username = $1', [username], function (err, result){
+    pool.query('SELECT * from "user" WHERE username = $1', [username], function (err, result){
       if(err){
           res.status(500).send(err.toString());
           
@@ -106,7 +106,7 @@ app.post('/login', function(req, res){
           else {
               var dbString = result.rows[0].password;
               var salt = dbstring.split('$')[2];
-              var hashedPassword = hash(password, salt);
+               var hashedPassword = hash(password, salt);
               if(hashedPassword === dbString){
                   res.send('credentials correct.!');
               }
